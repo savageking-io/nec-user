@@ -15,7 +15,7 @@ type UserClient struct {
 	client pb.UserClient
 }
 
-func (d *UserClient) Connect(grpcServerHostname string, grpcServerPort uint32) error {
+func (d *UserClient) Connect(grpcServerHostname string, grpcServerPort uint16) error {
 	log.Traceln("UserClient::Connect")
 	var err error
 	d.conn, err = grpc.NewClient(fmt.Sprintf("%s:%d", grpcServerHostname, grpcServerPort), grpc.WithTransportCredentials(insecure.NewCredentials()))
